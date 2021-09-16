@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   resources :users do 
     resources :artworks, only: [:index]  
   end
-  resources :artworks, except: [:index]
+  resources :artworks, except: [:index]  
 end

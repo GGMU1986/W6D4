@@ -1,7 +1,7 @@
 class ArtworksController < ApplicationController
     def index
-        @artwork = Artwork.all
-        rendor json: @artworks
+        @artworks = Artwork.all
+        render json: @artworks
     end    
 
     def show
@@ -10,12 +10,11 @@ class ArtworksController < ApplicationController
 
     def create
         @artwork = Artwork.new(artwork_params)
-        @artwork.author = Artwork.first
 
         if @artwork.save
-            redirect_to artwork_url(@artwork)
+            render json: @artwork
         else
-            rendor json: @artwork.errors.full_messages, status: 422
+            render json: @artwork.errors.full_messages, status: 422
         end
     end
 
@@ -25,7 +24,7 @@ class ArtworksController < ApplicationController
         if @artwork.update(artwork_params)
             redirect_to artwork_url(@artwork)
         else
-            rendor json: @artwork.errors.full_messages, status: 422
+            render json: @artwork.errors.full_messages, status: 422
         end
     end
 
