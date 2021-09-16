@@ -1519,4 +1519,65 @@ No template found for UsersController#show, rendering head :no_content
 Completed 204 No Content in 5488ms (ActiveRecord: 998.7ms)
 
 
+<<<<<<< HEAD
 >>>>>>> 140eb87913763eadd131f30ce57eb273db5150e3
+=======
+Started GET "/users/2" for ::1 at 2021-09-16 15:19:07 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (3.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8
+No template found for UsersController#show, rendering head :no_content
+Completed 204 No Content in 2048ms (ActiveRecord: 64.4ms)
+
+
+  [1m[36mUser Load (24.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started GET "/users/2" for ::1 at 2021-09-16 15:28:49 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (29.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8
+Completed 200 OK in 48142ms (Views: 2.0ms | ActiveRecord: 44683.4ms)
+
+
+Started GET "/users/2" for ::1 at 2021-09-16 15:30:52 -0400
+  [1m[35m (3549.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/mpoumpou/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (1820.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8
+Completed 200 OK in 4925ms (Views: 3.3ms | ActiveRecord: 3497.0ms)
+
+
+Started POST "/users?username=%27Greta%27" for ::1 at 2021-09-16 15:35:58 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"'Greta'"}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 2ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/users?user[username]=%27Greta%27" for ::1 at 2021-09-16 15:37:14 -0400
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"username"=>"'Greta'"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 5ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/users?user[username]=Greta" for ::1 at 2021-09-16 15:38:05 -0400
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"username"=>"Greta"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 3ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+>>>>>>> 9cfdfc643cf888ba9e6d5b521a1aced0ffe9fa6b
