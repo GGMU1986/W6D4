@@ -10,10 +10,24 @@ class ArtworksController < ApplicationController
     #     .where(users: {id: :artist_id})
 
     def index
-        debugger
-        @artworks = Artwork.joins(:artist).where(artist_id: params[:user_id])
-        #@artworks = Artwork.where(artist_id: params[:artist_id])
-        render json: @artworks
+        #debugger
+        if params[:user_id].equal?(:artist_id)
+            @artworks = Artwork.joins(:artist).where(artist_id: params[:user_id])
+            render json: @artworks
+        else
+            render json: 'That key does not exist'
+        end
+        
+        # unless params[:user_id] == nil
+        #     @artworks = Artwork.joins(:artist).where(artist_id: params[:user_id])
+        # else
+        #     render text: 'That key does not exist'
+        # end
+
+        
+
+        # @artworks = Artwork.joins(:artist).where(artist_id: params[:user_id])
+        # render json: @artworks
     end
 
     def show
@@ -50,6 +64,6 @@ class ArtworksController < ApplicationController
     private
 
     def artwork_params
-        params.require(:artwork).permit(:title, :image_url, :artwork_id)
+        params.require(:artwork).permit(:title, :image_url, :artist_id)
     end
 end
